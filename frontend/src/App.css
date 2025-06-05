@@ -1,5 +1,7 @@
 .app h1 {
   text-align: center;
+  color: #8b4513;
+  margin-bottom: 1rem;
 }
 
 .app button {
