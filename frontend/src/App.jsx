@@ -2,7 +2,11 @@ import { useState } from 'react'
 import './App.css'
 
 export default function App() {
-  const [items, setItems] = useState([])
+  const initialItems = [
+    { id: 1, name: 'Mojito', qty: 5 },
+    { id: 2, name: 'Margarita', qty: 3 }
+  ]
+  const [items, setItems] = useState(initialItems)
   const [name, setName] = useState('')
   const [qty, setQty] = useState(1)
 
