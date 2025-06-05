@@ -31,3 +31,4 @@ La interfaz permite:
 - Modificar la cantidad existente de cada artículo.
 - Eliminar artículos de la lista.
 - Al abrir la aplicación se cargan algunos tragos de ejemplo ("Mojito" y "Margarita") para que puedas probar rápidamente.
+- Los artículos se muestran como tarjetas con una imagen generada automáticamente a partir del nombre.

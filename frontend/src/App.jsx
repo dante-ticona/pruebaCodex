@@ -3,8 +3,18 @@ import './App.css'
 
 export default function App() {
   const initialItems = [
-    { id: 1, name: 'Mojito', qty: 5 },
-    { id: 2, name: 'Margarita', qty: 3 }
+    {
+      id: 1,
+      name: 'Mojito',
+      qty: 5,
+      img: 'https://via.placeholder.com/150?text=Mojito'
+    },
+    {
+      id: 2,
+      name: 'Margarita',
+      qty: 3,
+      img: 'https://via.placeholder.com/150?text=Margarita'
+    }
   ]
   const [items, setItems] = useState(initialItems)
   const [name, setName] = useState('')
@@ -13,7 +23,15 @@ export default function App() {
   const addItem = (e) => {
     e.preventDefault()
     if (!name.trim()) return
-    setItems([...items, { id: Date.now(), name, qty: Number(qty) }])
+    setItems([
+      ...items,
+      {
+        id: Date.now(),
+        name,
+        qty: Number(qty),
+        img: `https://via.placeholder.com/150?text=${encodeURIComponent(name)}`,
+      },
+    ])
     setName('')
     setQty(1)
   }
@@ -46,16 +64,20 @@ export default function App() {
         />
         <button type="submit">Agregar</button>
       </form>
-      <ul>
+      <div className="cards">
         {items.map(item => (
-          <li key={item.id}>
-            {item.name} - {item.qty}
-            <button onClick={() => updateQty(item.id, 1)}>+</button>
-            <button onClick={() => updateQty(item.id, -1)} disabled={item.qty <= 1}>-</button>
-            <button onClick={() => removeItem(item.id)}>Eliminar</button>
-          </li>
+          <div className="card" key={item.id}>
+            <img src={item.img} alt={item.name} />
+            <h2>{item.name}</h2>
+            <p>Cantidad: {item.qty}</p>
+            <div className="actions">
+              <button onClick={() => updateQty(item.id, 1)}>+</button>
+              <button onClick={() => updateQty(item.id, -1)} disabled={item.qty <= 1}>-</button>
+              <button onClick={() => removeItem(item.id)}>Eliminar</button>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   )
 }
