@@ -41,16 +41,32 @@ button:disabled {
   cursor: not-allowed;
 }
 
-ul {
+.cards {
   list-style: none;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
 }
 
-li {
+.card {
+  background: #fffbea;
+  border: 1px solid #d8c3a5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.actions {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  border-bottom: 1px solid #d8c3a5;
-  padding-bottom: 0.25rem;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
 }
