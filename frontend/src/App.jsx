@@ -2,18 +2,26 @@ import { useState } from 'react'
 import './App.css'
 
 export default function App() {
+  const getPlaceholder = (text) => {
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'>` +
+      `<rect width='100%' height='100%' fill='#ccc'/><text x='50%' y='50%' ` +
+      `dominant-baseline='middle' text-anchor='middle' font-size='20' fill='#555'>` +
+      `${text}</text></svg>`
+    return `data:image/svg+xml,${encodeURIComponent(svg)}`
+  }
+
   const initialItems = [
     {
       id: 1,
       name: 'Mojito',
       qty: 5,
-      img: 'https://via.placeholder.com/150?text=Mojito'
+      img: getPlaceholder('Mojito')
     },
     {
       id: 2,
       name: 'Margarita',
       qty: 3,
-      img: 'https://via.placeholder.com/150?text=Margarita'
+      img: getPlaceholder('Margarita')
     }
   ]
   const [items, setItems] = useState(initialItems)
@@ -29,7 +37,7 @@ export default function App() {
         id: Date.now(),
         name,
         qty: Number(qty),
-        img: `https://via.placeholder.com/150?text=${encodeURIComponent(name)}`,
+        img: getPlaceholder(name),
       },
     ])
     setName('')
