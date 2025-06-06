@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import logo from './logo.svg'
 
 export default function App() {
   const getPlaceholder = (text) => {
@@ -56,6 +57,7 @@ export default function App() {
 
   return (
     <div className="app">
+      <img src={logo} alt="Logo" className="logo" />
       <h1>Inventario de Tragos</h1>
       <form onSubmit={addItem}>
         <input
